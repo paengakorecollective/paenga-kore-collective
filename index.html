@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paenga Kore Collective | Creative Media & Storytelling</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ink-black': '#0a0a0f',
+                        'deep-black': '#050508',
+                        'surface-black': '#12121a',
+                        'electric-blue': '#00d4ff',
+                        'vivid-teal': '#00ffaa',
+                        'neon-green': '#88ff00',
+                        'text-primary': '#ffffff',
+                        'text-secondary': '#b4b4c8',
+                        'text-muted': '#6b6b82',
+                    },
+                    fontFamily: {
+                        'space': ['"Space Grotesk"', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-hero': 'linear-gradient(135deg, #00d4ff 0%, #00ffaa 50%, #88ff00 100%)',
+                        'gradient-glow': 'radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.15), transparent 70%)',
+                        'gradient-surface': 'linear-gradient(180deg, rgba(0, 212, 255, 0.05) 0%, transparent 100%)',
+                        'gradient-border': 'linear-gradient(90deg, #00d4ff, #00ffaa, #88ff00)',
+                    },
+                    animation: {
+                        'glow-pulse': 'glow-pulse 3s ease-in-out infinite',
+                        'scanline': 'scanline 10s linear infinite',
+                    },
+                    keyframes: {
+                        'glow-pulse': {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(0, 212, 255, 0.2)' },
+                            '50%': { boxShadow: '0 0 40px rgba(0, 212, 255, 0.4)' },
+                        },
+                        'scanline': {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' },
+                        }
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050508;
+            color: #ffffff;
+            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+        }
+        .glass-effect {
+            background: rgba(18, 18, 26, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @keyframes brand-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00d4ff, #00ffaa, #88ff00, #00ffaa, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 300% 300%;
+            animation: brand-flow 15s linear infinite;
+            display: inline-block;
+        }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #050508; }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(#00d4ff, #00ffaa); 
+            border-radius: 10px;
+            border: 2px solid #050508;
+        }
+
+        /* Overlay texture */
+        .scanlines::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.005), rgba(0, 0, 255, 0.01));
+            background-size: 100% 3px, 3px 100%;
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="relative scanlines">
+    <!-- Clean Dark Base -->
+    <div class="fixed inset-0 z-[-2] bg-[#050508]"></div>
+    
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
